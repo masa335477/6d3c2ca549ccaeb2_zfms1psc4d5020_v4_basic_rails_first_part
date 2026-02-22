@@ -1,0 +1,13 @@
+current directory: /Users/owner/bug/bugapp_scaffold/vendor/bundle/ruby/2.6.0/gems/json-2.5.1/ext/json
+/Users/owner/.rbenv/versions/2.6.3/bin/ruby -I /Users/owner/.rbenv/versions/2.6.3/lib/ruby/2.6.0 -r ./siteconf20210531-51891-11q490s.rb extconf.rb
+creating Makefile
+
+current directory: /Users/owner/bug/bugapp_scaffold/vendor/bundle/ruby/2.6.0/gems/json-2.5.1/ext/json
+make "DESTDIR=" clean
+
+current directory: /Users/owner/bug/bugapp_scaffold/vendor/bundle/ruby/2.6.0/gems/json-2.5.1/ext/json
+make "DESTDIR="
+make: Nothing to be done for `all'.
+
+current directory: /Users/owner/bug/bugapp_scaffold/vendor/bundle/ruby/2.6.0/gems/json-2.5.1/ext/json
+make "DESTDIR=" install

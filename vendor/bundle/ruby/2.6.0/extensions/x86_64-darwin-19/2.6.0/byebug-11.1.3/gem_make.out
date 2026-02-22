@@ -1,0 +1,19 @@
+current directory: /Users/owner/bug/bugapp_scaffold/vendor/bundle/ruby/2.6.0/gems/byebug-11.1.3/ext/byebug
+/Users/owner/.rbenv/versions/2.6.3/bin/ruby -I /Users/owner/.rbenv/versions/2.6.3/lib/ruby/2.6.0 -r ./siteconf20210531-51891-16n339d.rb extconf.rb
+creating Makefile
+
+current directory: /Users/owner/bug/bugapp_scaffold/vendor/bundle/ruby/2.6.0/gems/byebug-11.1.3/ext/byebug
+make "DESTDIR=" clean
+
+current directory: /Users/owner/bug/bugapp_scaffold/vendor/bundle/ruby/2.6.0/gems/byebug-11.1.3/ext/byebug
+make "DESTDIR="
+compiling breakpoint.c
+compiling byebug.c
+compiling context.c
+compiling locker.c
+compiling threads.c
+linking shared-object byebug/byebug.bundle
+
+current directory: /Users/owner/bug/bugapp_scaffold/vendor/bundle/ruby/2.6.0/gems/byebug-11.1.3/ext/byebug
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 byebug.bundle ./.gem.20210531-51891-ujhq0t/byebug
