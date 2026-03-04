@@ -1,46 +1,70 @@
+# == Schema Information
+#
+# Table name: boards
+#
+#  id          :bigint           not null, primary key
+#  title       :string(255)      not null
+#  body        :text(65535)      not null
+#  user_id     :bigint
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  board_image :string(255)
+#
+
 require 'rails_helper'
 
 RSpec.describe Board, type: :model do
-  it '全てのフィールドが有効であること' do
-    board = build(:board)
-    expect(board).to be_valid
+
+  context '全てのフィールドが有効な場合' do
+    it '有効であること' do
+      board = build(:board)
+      expect(board).to be_valid
+    end
   end
 
-  it 'タイトルが存在していない場合' do
-    board = build(:board, title: nil)
-    board.valid?
-    expect(board.errors[:title]).to include('を入力してください')
+  context 'タイトルが存在しない場合' do
+    it '無効であること' do
+      board = build(:board, title: nil)
+      expect(board).to be_invalid
+      expect(board.errors[:title]).to include('を入力してください')
+    end
   end
 
-  it '本文が存在していない場合' do
-    board = build(:board, body: nil)
-    board.valid?
-    expect(board.errors[:body]).to include('を入力してください')
+  context '本文が存在しない場合' do
+    it '無効であること' do
+      board = build(:board, body: nil)
+      expect(board).to be_invalid
+      expect(board.errors[:body]).to include('を入力してください')
+    end
   end
 
-  it 'タイトルは255文字以下であること' do
-    board = build(:board)
-    board.title = 'a' * 255
-    expect(board).to be_valid
+  context 'タイトルが255文字以下の場合' do
+    it '有効であること' do
+      board = build(:board, title: 'a' * 255)
+      expect(board).to be_valid
+    end
   end
 
-  it 'タイトルは256文字以上である場合' do
-    board = build(:board)
-    board.title = 'a' * 256
-    board.valid?
-    expect(board.errors[:title]).to include('は255文字以内で入力してください')
+  context 'タイトルが256文字以上の場合' do
+    it '無効であること' do
+      board = build(:board, title: 'a' * 256)
+      expect(board).to be_invalid
+      expect(board.errors[:title]).to include('は255文字以内で入力してください')
+    end
   end
 
-  it '本文は65,535文字以下であること' do
-    board = build(:board)
-    board.body = 'a' * 65_535
-    expect(board).to be_valid
+  context '本文が65535文字以内の場合' do
+    it '有効であること' do
+      board = build(:board, body: 'a' * 65535)
+      expect(board).to be_valid
+    end
   end
 
-  it '本文は65,536文字以上である場合' do
-    board = build(:board)
-    board.body = 'a' * 65_536
-    board.valid?
-    expect(board.errors[:body]).to include('は65535文字以内で入力してください')
+  context '本文が65536文字以上の場合' do
+    it '無効であること' do
+      board = build(:board, body: 'a' * 65536)
+      expect(board).to be_invalid
+      expect(board.errors[:body]).to include('は65535文字以内で入力してください')
+    end
   end
 end
