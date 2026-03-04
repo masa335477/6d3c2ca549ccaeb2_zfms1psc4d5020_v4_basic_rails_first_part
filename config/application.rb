@@ -39,6 +39,7 @@ module V3BasicRailsBasic
       g.test_framework nil
 
       config.i18n.default_locale = :ja
+      config.time_zone = 'Tokyo'
     end
   end
 end
