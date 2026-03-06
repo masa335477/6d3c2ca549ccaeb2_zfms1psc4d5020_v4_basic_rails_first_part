@@ -16,4 +16,10 @@ class BoardsController < ApplicationController
         render :new, status: :unprocessable_entity
       end
     end
+
+    private
+
+    def board_params
+      params.require(:board).permit(:title, :body)
+    end
 end
