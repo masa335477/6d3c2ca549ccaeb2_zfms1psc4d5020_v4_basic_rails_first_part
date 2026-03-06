@@ -6,4 +6,14 @@ class BoardsController < ApplicationController
     def new
       @board = Board.new
     end
+
+    def create
+      @board = current_user.boards.build(board_params)
+      if @board.save
+        redirect_to boards_path, flash: { success: t('defaults.flash_message.created', item: Board.model_name.human) }
+      else
+        flash.now[:danger] = t('defaults.flash_message.not_created', item: Board.model_name.human)
+        render :new, status: :unprocessable_entity
+      end
+    end
 end
