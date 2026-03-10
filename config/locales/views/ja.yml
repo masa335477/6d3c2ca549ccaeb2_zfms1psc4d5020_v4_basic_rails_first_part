@@ -1,5 +1,8 @@
 ja:
   defaults:
+    post: 投稿
+    comment: コメント
+    board: 掲示板
     flash_message:
       created: "%{item}を作成しました"
       not_created: "%{item}を作成出来ませんでした"
@@ -41,6 +44,8 @@ ja:
   boards:
     new:
       title: 掲示板作成
+    show:
+      title: 掲示板詳細
     flash_message:
       success: 掲示板を作成しました
       failure: 掲示板を作成出来ませんでした
